@@ -1,0 +1,21 @@
+name: Build AI Project 0
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  REGISTRY: registry-1.docker.io/v1
+
+jobs:
+
+  build-python:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Python
+      run: |
+        make install-python
+        make run-python
